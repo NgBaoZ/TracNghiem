@@ -1,0 +1,21 @@
+/* Làm cho khối input-group trở thành gốc để căn chỉnh vị trí */
+.input-group {
+    position: relative;
+}
+
+/* Định vị và tạo kiểu cho nút con mắt */
+.toggle-password {
+    position: absolute;
+    right: 10px; /* Cách lề phải 10px */
+    top: 50%; /* Căn giữa theo chiều dọc */
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 5px;
+    color: #888; /* Màu icon */
+}
+
+.toggle-password:focus {
+    outline: none; /* Bỏ viền khi click */
+}

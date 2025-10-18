@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #072f68 0%, #4f9cab 100%);
+    padding: 20px;
+}
+
+.login-container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+.register-container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #072f68;
+}
+
+.input-group {
+    position: relative;
+    /* Để định vị label bên trong input */
+    margin-bottom: 30px;
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #333;
+    pointer-events: none;
+    /* Ngăn label bị click */
+    transition: all 0.3s ease;
+    /* Hiệu ứng chuyển động mượt */
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    background: transparent;
+    /* Để label hiển thị rõ bên trong */
+    outline: none;/
+}
+
+/* Khi input được focus hoặc có nội dung, di chuyển label lên trên */
+.input-group input:focus+label,
+.input-group input:not(:placeholder-shown)+label {
+    top: 0;
+    font-size: 12px;
+    color: #4f9cab;
+    transform: translateY(-100%);
+    background: white;
+    padding: 0 5px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #072f68;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0a3f8a;
+}
+
+.forgot-password,
+.register {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.forgot-password a,
+.register a {
+    color: #4f9cab;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login-link a {
+    color: #4f9cab;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+
+
+
