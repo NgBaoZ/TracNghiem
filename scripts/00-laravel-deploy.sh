@@ -12,11 +12,9 @@ php artisan optimize:clear
 php artisan config:clear
 php artisan route:clear
 php artisan view:clear
-
 echo "Caching production config..."
-# Tạo cache mới
-php artisan config:cache
-php artisan route:cache
+
+
 
 # 3. Chạy Database Migrations
 echo "Running migrations..."
