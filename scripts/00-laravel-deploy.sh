@@ -6,9 +6,15 @@ echo "Bắt đầu triển khai Laravel..."
 echo "Running composer install..."
 composer install --no-dev --working-dir=/var/www/html
 
-# 2. Xóa các cache cũ và tạo cache mới
-echo "Clearing and caching configuration, routes, and views..."
-php artisan optimize:clear
+echo "Clearing all caches..."
+# Xóa tất cả các loại cache để tránh xung đột
+php artisan optimize:clear 
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
+
+echo "Caching production config..."
+# Tạo cache mới
 php artisan config:cache
 php artisan route:cache
 
