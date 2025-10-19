@@ -1,7 +1,7 @@
 services:
   - type: web
     name: TracNghiem   # <<<--- THAY TÊN NÀY
-    runtime: php              # <<<--- ĐÂY LÀ DÒNG QUAN TRỌNG NHẤT!
+    buildpack: heroku/php           # <<<--- ĐÂY LÀ DÒNG QUAN TRỌNG NHẤT!
     region: singapore       # <<<--- Giữ nguyên nếu DB của bạn ở đây
     plan: free
 
