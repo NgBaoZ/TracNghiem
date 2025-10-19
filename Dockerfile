@@ -3,7 +3,7 @@ FROM richarvey/nginx-php-fpm:latest
 
 # Copy toàn bộ code dự án và cấu hình NGINX
 COPY . /var/www/html
-COPY default.conf /etc/nginx/conf.d/default.conf
+COPY default.conf /etc/nginx/sites-enabled/default.conf
 
 # Cấu hình môi trường cơ bản
 ENV SKIP_COMPOSER 1
