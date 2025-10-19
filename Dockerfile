@@ -2,8 +2,11 @@
 # Luôn dùng bản mới nhất để đảm bảo tương thích PHP
 FROM richarvey/nginx-php-fpm:latest
 
+
 # Copy toàn bộ code dự án vào thư mục /var/www/html trong container
 COPY . /var/www/html
+# Copy file cấu hình NGINX tùy chỉnh vào thư mục cấu hình
+COPY default.conf /etc/nginx/conf.d/default.conf
 
 # Cấu hình môi trường và Laravel
 ENV SKIP_COMPOSER 1
