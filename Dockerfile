@@ -36,5 +36,20 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 RUN chown -R www-data:www-data /var/www/html/storage
 RUN chmod -R 775 /var/www/html/storage
 
+
+# Cài đặt các gói hệ thống cần thiết (Dependencies)
+# * postgresql-dev: cần thiết cho pdo_pgsql
+# * zip/libzip-dev: cần thiết cho extension zip
+# * icu-dev: cần thiết cho intl
+# * gd-dev: cần thiết cho extension gd
+RUN apk add --no-cache \
+    postgresql-dev \
+    libzip-dev \
+    icu-dev \
+    gd-dev \
+    && rm -rf /var/cache/apk/*
+    # Cài đặt và kích hoạt các extension PHP
+RUN docker-php-ext-install pdo_pgsql zip intl gd
+
 # Lệnh mặc định sẽ chạy /start.sh của base image
 CMD ["/start.sh"]
