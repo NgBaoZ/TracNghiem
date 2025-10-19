@@ -16,4 +16,5 @@ php artisan view:cache
 # --force là bắt buộc vì đang ở môi trường production
 php artisan migrate --force
 
+php artisan db:seed --force
 echo "Build hoan tat!"
