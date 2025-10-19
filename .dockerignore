@@ -1,8 +1,0 @@
-.git
-.idea
-.vscode
-.env
-vendor
-node_modules
-storage/*.log
-*.sql
