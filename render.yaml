@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: TracNghiem   # <<<--- THAY TÊN NÀY
+    runtime: php              # <<<--- ĐÂY LÀ DÒNG QUAN TRỌNG NHẤT!
+    region: singapore       # <<<--- Giữ nguyên nếu DB của bạn ở đây
+    plan: free
+
+    buildCommand: "bash ./build.sh"
+    startCommand: "heroku-php-apache2 public/"
+
+    envVars:
+      - key: APP_URL
+        value: https://TracNghiem.onrender.com # Nhớ thay tên
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: LOG_CHANNEL
+        value: stderr
