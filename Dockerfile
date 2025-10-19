@@ -15,9 +15,18 @@ ENV REAL_IP_HEADER 1
 # Cho phép Composer chạy với quyền root
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
-# Cài đặt một số extension PHP phổ biến (nếu cần) và Composer
-# (Tùy chọn: Nếu bạn cần các extension khác, thêm vào đây)
-RUN install-php-extensions pdo_pgsql gd intl zip
+
+# Cài đặt các gói hệ thống cần thiết (Dependencies)
+# * postgresql-dev: cần thiết cho pdo_pgsql
+# * zip/libzip-dev: cần thiết cho extension zip
+# * icu-dev: cần thiết cho intl
+# * gd-dev: cần thiết cho extension gd
+RUN apk add --no-cache \
+    postgresql-dev \
+    libzip-dev \
+    icu-dev \
+    gd-dev \
+    && rm -rf /var/cache/apk/*
 
 # Thiết lập permissions cho thư mục storage
 RUN chown -R www-data:www-data /var/www/html/storage
@@ -37,17 +46,7 @@ RUN chown -R www-data:www-data /var/www/html/storage
 RUN chmod -R 775 /var/www/html/storage
 
 
-# Cài đặt các gói hệ thống cần thiết (Dependencies)
-# * postgresql-dev: cần thiết cho pdo_pgsql
-# * zip/libzip-dev: cần thiết cho extension zip
-# * icu-dev: cần thiết cho intl
-# * gd-dev: cần thiết cho extension gd
-RUN apk add --no-cache \
-    postgresql-dev \
-    libzip-dev \
-    icu-dev \
-    gd-dev \
-    && rm -rf /var/cache/apk/*
+
     # Cài đặt và kích hoạt các extension PHP
 RUN docker-php-ext-install pdo_pgsql zip intl gd
 
