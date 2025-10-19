@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(UrlGenerator $url)
     {
         // Buộc sử dụng HTTPS nếu APP_ENV là production (hoặc tương đương)
-        if ($this->app->environment('production')) {
+        if (env('APP_ENV') == 'production') {
             $url->forceScheme('https');
         }
     }
