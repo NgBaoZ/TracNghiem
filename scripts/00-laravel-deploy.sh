@@ -11,7 +11,8 @@ echo "Clearing all caches..."
 php artisan optimize:clear 
 php artisan config:clear
 php artisan route:clear
-echo "Caching production config..."
+php artisan view:clear 
+
 
 
 
